@@ -58,19 +58,13 @@ plt.plot(sea_floor_depths)
 plt.gca().invert_yaxis()
 plt.xlabel("measurement #")
 plt.ylabel("sea floor depth")
+plt.show()
 
 ```
 
 
-
-
-    Text(0, 0.5, 'sea floor depth')
-
-
-
-
     
-![png](README_files/README_3_1.png)
+![png](README_files/README_3_0.png)
     
 
 
