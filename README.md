@@ -53,6 +53,9 @@ print(n_increments)
 
 ```
 
+    1532
+
+
 <article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Considering every single measurement isn't as useful as you expected: there's just too much noise in the data.</p>
 <p>Instead, consider sums of a <em>three-measurement sliding window</em>.  Again considering the above example:</p>
 <pre><code>199  A      
