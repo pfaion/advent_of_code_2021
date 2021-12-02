@@ -2,7 +2,9 @@
 
 This repository tracks my solutions for [Advent Of Code 2021](https://adventofcode.com/2021). This year I decided to create a single jupyter notebook for documenting the journey. The notebook is finally converted into a markdown file, so it can be used as this repo's README. Instructions are just copied as plain HTML from the website. 
 
-<article class="day-desc"><h2>--- Day 1: Sonar Sweep ---</h2><p>You're minding your own business on a ship at sea when the overboard alarm goes off! You rush to see if you can help. Apparently, one of the Elves tripped and accidentally sent the sleigh keys flying into the ocean!</p>
+<h2>Day 1: Sonar Sweep</h2>
+<details><summary>Expand/collapse</summary>
+<p>You're minding your own business on a ship at sea when the overboard alarm goes off! You rush to see if you can help. Apparently, one of the Elves tripped and accidentally sent the sleigh keys flying into the ocean!</p>
 <p>Before you know it, you're inside a submarine the Elves keep ready for situations like this. It's covered in Christmas lights (because of course it is), and it even has an experimental antenna that should be able to track the keys if you can boost its signal strength high enough; there's a little meter that indicates the antenna's signal strength by displaying 0-50 <em class="star">stars</em>.</p>
 <p>Your instincts tell you that in order to save Christmas, you'll need to get all <em class="star">fifty stars</em> by December 25th.</p>
 <p>Collect stars by solving puzzles.  Two puzzles will be made available on each day in the Advent calendar; the second puzzle is unlocked when you complete the first.  Each puzzle grants <em class="star">one star</em>. Good luck!</p>
@@ -35,7 +37,7 @@ This repository tracks my solutions for [Advent Of Code 2021](https://adventofco
 </code></pre>
 <p>In this example, there are <em><code>7</code></em> measurements that are larger than the previous measurement.</p>
 <p><em>How many measurements are larger than the previous measurement?</em></p>
-</article>
+</details>
 
 ### Solution Puzzle 1
 
@@ -56,7 +58,9 @@ print(n_increments)
     1532
 
 
-<article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Considering every single measurement isn't as useful as you expected: there's just too much noise in the data.</p>
+### Part Two
+<details><summary>Expand/collapse</summary>
+<p>Considering every single measurement isn't as useful as you expected: there's just too much noise in the data.</p>
 <p>Instead, consider sums of a <em>three-measurement sliding window</em>.  Again considering the above example:</p>
 <pre><code>199  A      
 200  A B    
@@ -83,7 +87,7 @@ H: 792 (<em>increased</em>)
 </code></pre>
 <p>In this example, there are <em><code>5</code></em> sums that are larger than the previous sum.</p>
 <p>Consider sums of a three-measurement sliding window. <em>How many sums are larger than the previous sum?</em></p>
-</article>
+</details>
 
 ### Solution Puzzle 2
 
