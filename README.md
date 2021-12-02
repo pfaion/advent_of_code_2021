@@ -54,10 +54,11 @@ plt.rcParams.update({"figure.facecolor": (1.0, 1.0, 1.0, 1.0)})
 sea_floor_depths = tools.load_ints("day01.txt")
 
 plt.figure(figsize=(16, 4))
-plt.plot(sea_floor_depths)
 plt.gca().invert_yaxis()
-plt.xlabel("measurement #")
-plt.ylabel("sea floor depth")
+plt.xticks([])
+plt.ylabel("Depth")
+plt.plot(sea_floor_depths, label="Sea Floor")
+plt.legend()
 plt.show()
 
 ```
@@ -181,4 +182,153 @@ forward 2
 <p>Calculate the horizontal position and depth you would have after following the planned course. <em>What do you get if you multiply your final horizontal position by your final depth?</em></p>
 </details>
 
+### Solution Puzzle 1
+
+Let's first build some tools for parsing the input data:
+
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class Command:
+    direction: str
+    distance: int
+
+
+commands = [
+    Command(direction=line.split()[0], distance=int(line.split()[1]))
+    for line in tools.load_lines("day02.txt")
+]
+
+```
+
+Now we can simply iterate over the commands and keep track of the position. I'll also store all positions, so we can visualize it afterwards.
+
+**NOTE:** The description seems to be wrong:
+
+> down X increases the depth by X units.
+
+> up X decreases the depth by X units.
+
+When doing it that way, the final depth will be negative and won't be accepted on the website. I had to flip it around.
+
+
+```python
+horizontal_position, depth = (0, 0)
+path = [(horizontal_position, depth)]
+for command in commands:
+    match command.direction:
+        case "forward":
+            horizontal_position += command.distance
+        case "up":
+            depth -= command.distance
+        case "down":
+            depth += command.distance
+    path.append((horizontal_position, depth))
+
+print("Final Position:", (horizontal_position, depth))
+print("Solution:", horizontal_position * depth)
+```
+
+    Final Position: (2033, 750)
+    Solution: 1524750
+
+
+And visualizing the path of the submarine:
+
+
+```python
+plt.figure(figsize=(16, 4))
+plt.gca().invert_yaxis()
+plt.ylabel("Depth")
+plt.xticks([])
+plt.plot(sea_floor_depths, label="Sea Floor")
+plt.plot(*zip(*path), label="Submarine Path")
+plt.legend()
+plt.show()
+
+```
+
+
+    
+![png](README_files/README_17_0.png)
+    
+
+
+### Part Two
+<details><summary>Expand/collapse</summary>
+<p>Based on your calculations, the planned course doesn't seem to make any sense. You find the submarine manual and discover that the process is actually slightly more complicated.</p>
+<p>In addition to horizontal position and depth, you'll also need to track a third value, <em>aim</em>, which also starts at <code>0</code>. The commands also mean something entirely different than you first thought:</p>
+<ul>
+<li><code>down X</code> <em>increases</em> your aim by <code>X</code> units.</li>
+<li><code>up X</code> <em>decreases</em> your aim by <code>X</code> units.</li>
+<li><code>forward X</code> does two things:<ul>
+  <li>It increases your horizontal position by <code>X</code> units.</li>
+  <li>It increases your depth by your aim <em>multiplied by</em> <code>X</code>.</li>
+</ul></li>
+</ul>
+<p>Again note that since you're on a submarine, <code>down</code> and <code>up</code> do the opposite of what you might expect: "down" means aiming in the positive direction.</p>
+<p>Now, the above example does something different:</p>
+<ul>
+<li><code>forward 5</code> adds <code>5</code> to your horizontal position, a total of <code>5</code>. Because your aim is <code>0</code>, your depth does not change.</li>
+<li><code>down 5</code> adds <code>5</code> to your aim, resulting in a value of <code>5</code>.</li>
+<li><code>forward 8</code> adds <code>8</code> to your horizontal position, a total of <code>13</code>. Because your aim is <code>5</code>, your depth increases by <code>8*5=40</code>.</li>
+<li><code>up 3</code> decreases your aim by <code>3</code>, resulting in a value of <code>2</code>.</li>
+<li><code>down 8</code> adds <code>8</code> to your aim, resulting in a value of <code>10</code>.</li>
+<li><code>forward 2</code> adds <code>2</code> to your horizontal position, a total of <code>15</code>.  Because your aim is <code>10</code>, your depth increases by <code>2*10=20</code> to a total of <code>60</code>.</li>
+</ul>
+<p>After following these new instructions, you would have a horizontal position of <code>15</code> and a depth of <code>60</code>. (Multiplying these produces <code><em>900</em></code>.)</p>
+<p>Using this new interpretation of the commands, calculate the horizontal position and depth you would have after following the planned course. <em>What do you get if you multiply your final horizontal position by your final depth?</em></p>
+</details>
+
+### Solution Puzzle 2
+
+This only needs slight adjustments from the previous solution.
+
+
+```python
+horizontal_position, depth = (0, 0)
+aim = 0
+path = [(horizontal_position, depth)]
+for command in commands:
+    match command.direction:
+        case "forward":
+            horizontal_position += command.distance
+            depth += aim * command.distance
+        case "up":
+            aim -= command.distance
+        case "down":
+            aim += command.distance
+    path.append((horizontal_position, depth))
+
+print("Final Position:", (horizontal_position, depth))
+print("Solution:", horizontal_position * depth)
+
+```
+
+    Final Position: (2033, 783289)
+    Solution: 1592426537
+
+
+However, looking at the submarine path, I'm really not sure what's going on here. The solution is accepted though. But it doesn't make much sense to me.
+
+
+```python
+plt.figure(figsize=(16, 4))
+plt.gca().invert_yaxis()
+plt.ylabel("Depth")
+plt.xticks([])
+plt.plot(sea_floor_depths, label="Sea Floor")
+plt.plot(*zip(*path), label="Submarine Path")
+plt.legend()
+plt.show()
+
+```
+
+
+    
+![png](README_files/README_23_0.png)
+    
 
