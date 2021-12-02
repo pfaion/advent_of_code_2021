@@ -95,7 +95,7 @@ from typing import Iterable, Iterator, Sequence
 from collections import deque
 
 
-def window(data: Iterable, window_size: int) -> Iterator[Sequence]:
+def sliding_window(data: Iterable, window_size: int) -> Iterator[Sequence]:
     input_iterator = iter(data)
     window = deque()
     for value in input_iterator:
@@ -111,7 +111,7 @@ With this function we can quickly compute the sums and calculate the number of w
 
 
 ```python
-sums = [sum(values) for values in window(numbers, 3)]
+sums = [sum(values) for values in sliding_window(numbers, 3)]
 n_increments = sum(1 for a, b in pairwise(sums) if b > a)
 
 print(n_increments)
