@@ -209,7 +209,7 @@ Now we can simply iterate over the commands and keep track of the position. I'll
 **NOTE:** The description seems to be wrong:
 
 > down X increases the depth by X units.
-
+>
 > up X decreases the depth by X units.
 
 When doing it that way, the final depth will be negative and won't be accepted on the website. I had to flip it around.
