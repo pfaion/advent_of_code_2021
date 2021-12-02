@@ -49,18 +49,28 @@ Let's take a quick look at the data first:
 import tools
 from matplotlib import pyplot as plt
 
+plt.rcParams.update({"figure.facecolor": (1.0, 1.0, 1.0, 1.0)})
+
 sea_floor_depths = tools.load_ints("day01.txt")
 
-plt.figure(figsize=(16,4))
+plt.figure(figsize=(16, 4))
 plt.plot(sea_floor_depths)
 plt.gca().invert_yaxis()
 plt.xlabel("measurement #")
-plt.ylabel("sea floor depth");
+plt.ylabel("sea floor depth")
+
 ```
 
 
+
+
+    Text(0, 0.5, 'sea floor depth')
+
+
+
+
     
-![png](README_files/README_3_0.png)
+![png](README_files/README_3_1.png)
     
 
 
