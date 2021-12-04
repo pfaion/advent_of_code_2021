@@ -1,3 +1,5 @@
+<details><summary>Exercise Text (click to expand)</summary>
+
 <article class="day-desc"><h2>--- Day 2: Dive! ---</h2><p>Now, you need to figure out how to <span title="Tank, I need a pilot program for a B212 helicopter.">pilot this thing</span>.</p>
 <p>It seems like the submarine can take a series of commands like <code>forward 1</code>, <code>down 2</code>, or <code>up 3</code>:</p>
 <ul>
@@ -26,6 +28,8 @@ forward 2
 <p>After following these instructions, you would have a horizontal position of <code>15</code> and a depth of <code>10</code>. (Multiplying these together produces <code><em>150</em></code>.)</p>
 <p>Calculate the horizontal position and depth you would have after following the planned course. <em>What do you get if you multiply your final horizontal position by your final depth?</em></p>
 </article>
+
+</details>
 
 ## Solution 1
 
@@ -59,6 +63,8 @@ print("Solution:", horizontal_position * depth)
 Solution: 1524750
 
 
+<details><summary>Exercise Text (click to expand)</summary>
+
 <article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Based on your calculations, the planned course doesn't seem to make any sense. You find the submarine manual and discover that the process is actually slightly more complicated.</p>
 <p>In addition to horizontal position and depth, you'll also need to track a third value, <em>aim</em>, which also starts at <code>0</code>. The commands also mean something entirely different than you first thought:</p>
 <ul>
@@ -82,6 +88,8 @@ Solution: 1524750
 <p>After following these new instructions, you would have a horizontal position of <code>15</code> and a depth of <code>60</code>. (Multiplying these produces <code><em>900</em></code>.)</p>
 <p>Using this new interpretation of the commands, calculate the horizontal position and depth you would have after following the planned course. <em>What do you get if you multiply your final horizontal position by your final depth?</em></p>
 </article>
+
+</details>
 
 ## Solution 2
 

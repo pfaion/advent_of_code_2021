@@ -27,13 +27,17 @@ for folder in here.glob("day*"):
         readme.write_text(
             "\n\n".join(
                 (
+                    "<details><summary>Exercise Text (click to expand)</summary>",
                     part1,
+                    "</details>",
                     "## Solution 1",
                     "```python",
                     code1,
                     "```",
                     result1,
+                    "<details><summary>Exercise Text (click to expand)</summary>",
                     part2,
+                    "</details>",
                     "## Solution 2",
                     "```python",
                     code2,
