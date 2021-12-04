@@ -42,5 +42,5 @@ for folder in here.glob("day*"):
                 )
             )
         )
-    except Exception:
-        continue
+    except FileNotFoundError as e:
+        print(f"Could not make '{folder.name}' nice: {e}")
