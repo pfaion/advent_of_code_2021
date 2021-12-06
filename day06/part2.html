@@ -1,0 +1,4 @@
+<article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Suppose the lanternfish live forever and have unlimited food and space. Would they take over the entire ocean?</p>
+<p>After 256 days in the example above, there would be a total of <code><em>26984457539</em></code> lanternfish!</p>
+<p><em>How many lanternfish would there be after 256 days?</em></p>
+</article>
