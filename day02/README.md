@@ -63,6 +63,7 @@ print("Solution:", horizontal_position * depth)
 Solution: 1524750
 
 
+
 <details><summary>Exercise Text (click to expand)</summary>
 
 <article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Based on your calculations, the planned course doesn't seem to make any sense. You find the submarine manual and discover that the process is actually slightly more complicated.</p>
@@ -122,3 +123,4 @@ print("Solution:", horizontal_position * depth)
 ```
 
 Solution: 1592426537
+

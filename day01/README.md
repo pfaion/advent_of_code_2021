@@ -62,6 +62,7 @@ print("Solution:", n_increments)
 Solution: 1532
 
 
+
 <details><summary>Exercise Text (click to expand)</summary>
 
 <article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Considering every single measurement isn't as useful as you expected: there's just too much noise in the data.</p>
@@ -134,3 +135,4 @@ print("Solution:", n_increments)
 ```
 
 Solution: 1571
+

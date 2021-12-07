@@ -57,6 +57,7 @@ print("Solution:", gamma_rate * epsilon_rate)
 Solution: 1997414
 
 
+
 <details><summary>Exercise Text (click to expand)</summary>
 
 <article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Next, you should verify the <em>life support rating</em>, which can be determined by multiplying the <em>oxygen generator rating</em> by the <em>CO2 scrubber rating</em>.</p>
@@ -137,3 +138,4 @@ print("Solution:", oxygen_rating * co2_rating)
 ```
 
 Solution: 1032597
+

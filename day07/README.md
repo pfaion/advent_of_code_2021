@@ -50,6 +50,7 @@ print("Solution:", fuel_required)
 Solution: 328318
 
 
+
 <details><summary>Exercise Text (click to expand)</summary>
 
 <article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>The crabs don't seem interested in your proposed solution. Perhaps you misunderstand crab engineering?</p>
@@ -120,4 +121,6 @@ print("Solution (B):", min(possible_fuel_required))
 ```
 
 Solution (A): 89791146
+
 Solution (B): 89791146
+

@@ -15,13 +15,13 @@ for folder in here.glob("day*"):
         code1 = solution1.read_text()
         result1 = subprocess.check_output(
             f"/usr/bin/env python {solution1}", shell=True, encoding="utf-8"
-        )
+        ).replace("\n", "\n\n")
         part2 = (folder / "part2.html").read_text()
         solution2 = folder / "solution2.py"
         code2 = solution2.read_text()
         result2 = subprocess.check_output(
             f"/usr/bin/env python {solution2}", shell=True, encoding="utf-8"
-        )
+        ).replace("\n", "\n\n")
         # write data
         readme = folder / "README.md"
         readme.write_text(

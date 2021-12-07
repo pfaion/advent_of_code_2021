@@ -104,6 +104,7 @@ print("Solution:", n_overlaps)
 Solution: 6687
 
 
+
 <details><summary>Exercise Text (click to expand)</summary>
 
 <article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Unfortunately, considering only horizontal and vertical lines doesn't give you the full picture; you need to also consider <em>diagonal lines</em>.</p>
@@ -195,3 +196,4 @@ print("Solution:", n_overlaps)
 ```
 
 Solution: 19851
+

@@ -74,6 +74,7 @@ print("Solution:", sum(fish_per_age.values()))
 Solution: 345387
 
 
+
 <details><summary>Exercise Text (click to expand)</summary>
 
 <article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>Suppose the lanternfish live forever and have unlimited food and space. Would they take over the entire ocean?</p>
@@ -111,3 +112,4 @@ print("Solution:", sum(fish_per_age.values()))
 ```
 
 Solution: 1574445493136
+

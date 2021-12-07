@@ -125,6 +125,7 @@ print("Solution:", winning_board.score() * number)
 Solution: 50008
 
 
+
 <details><summary>Exercise Text (click to expand)</summary>
 
 <article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p>On the other hand, it might be wise to try a different strategy: <span title="That's 'cuz a submarine don't pull things' antennas out of their sockets when they lose. Giant squid are known to do that.">let the giant squid win</span>.</p>
@@ -207,3 +208,4 @@ print("Solution:", last_board.score() * number)
 ```
 
 Solution: 17408
+
