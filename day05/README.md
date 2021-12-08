@@ -40,6 +40,8 @@
 
 ## Solution 1
 
+### Variant 1
+
 ```python
 
 import re
@@ -101,9 +103,9 @@ print("Solution:", n_overlaps)
 
 ```
 
+Runtime: 0.1264089479991526
+
 Solution: 6687
-
-
 
 <details><summary>Exercise Text (click to expand)</summary>
 
@@ -132,6 +134,8 @@ Solution: 6687
 </details>
 
 ## Solution 2
+
+### Variant 1
 
 ```python
 
@@ -195,5 +199,6 @@ print("Solution:", n_overlaps)
 
 ```
 
-Solution: 19851
+Runtime: 0.16822024199791485
 
+Solution: 19851

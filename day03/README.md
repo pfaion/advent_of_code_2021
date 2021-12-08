@@ -29,6 +29,8 @@
 
 ## Solution 1
 
+### Variant 1
+
 ```python
 
 from pathlib import Path
@@ -54,9 +56,9 @@ print("Solution:", gamma_rate * epsilon_rate)
 
 ```
 
+Runtime: 0.03456882400132599
+
 Solution: 1997414
-
-
 
 <details><summary>Exercise Text (click to expand)</summary>
 
@@ -95,6 +97,8 @@ Solution: 1997414
 </details>
 
 ## Solution 2
+
+### Variant 1
 
 ```python
 
@@ -137,5 +141,6 @@ print("Solution:", oxygen_rating * co2_rating)
 
 ```
 
-Solution: 1032597
+Runtime: 0.04085601399856387
 
+Solution: 1032597

@@ -39,6 +39,8 @@
 
 ## Solution 1
 
+### Variant 1
+
 ```python
 
 import operator
@@ -59,9 +61,9 @@ print("Solution:", n_increments)
 
 ```
 
+Runtime: 0.030181687001459068
+
 Solution: 1532
-
-
 
 <details><summary>Exercise Text (click to expand)</summary>
 
@@ -97,6 +99,8 @@ H: 792 (<em>increased</em>)
 </details>
 
 ## Solution 2
+
+### Variant 1
 
 ```python
 
@@ -134,5 +138,6 @@ print("Solution:", n_increments)
 
 ```
 
-Solution: 1571
+Runtime: 0.030818562001513783
 
+Solution: 1571

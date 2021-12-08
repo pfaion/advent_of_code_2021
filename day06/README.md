@@ -46,6 +46,8 @@ After 18 days: 6,0,6,4,5,6,0,1,1,2,6,0,1,1,1,2,2,3,3,4,6,7,8,8,8,8
 
 ## Solution 1
 
+### Variant 1
+
 ```python
 
 from pathlib import Path
@@ -71,9 +73,9 @@ print("Solution:", sum(fish_per_age.values()))
 
 ```
 
+Runtime: 0.029885406001994852
+
 Solution: 345387
-
-
 
 <details><summary>Exercise Text (click to expand)</summary>
 
@@ -85,6 +87,8 @@ Solution: 345387
 </details>
 
 ## Solution 2
+
+### Variant 1
 
 ```python
 
@@ -111,5 +115,6 @@ print("Solution:", sum(fish_per_age.values()))
 
 ```
 
-Solution: 1574445493136
+Runtime: 0.03156473899798584
 
+Solution: 1574445493136

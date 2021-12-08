@@ -1,7 +1,7 @@
 from pathlib import Path
 from itertools import chain
 
-# loda data
+# load data
 data_file = Path(__file__).with_name("data.txt")
 data = data_file.read_text().splitlines()
 

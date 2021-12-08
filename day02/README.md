@@ -33,6 +33,8 @@ forward 2
 
 ## Solution 1
 
+### Variant 1
+
 ```python
 
 from pathlib import Path
@@ -60,9 +62,9 @@ print("Solution:", horizontal_position * depth)
 
 ```
 
+Runtime: 0.03076859100110596
+
 Solution: 1524750
-
-
 
 <details><summary>Exercise Text (click to expand)</summary>
 
@@ -94,6 +96,8 @@ Solution: 1524750
 
 ## Solution 2
 
+### Variant 1
+
 ```python
 
 from pathlib import Path
@@ -122,5 +126,6 @@ print("Solution:", horizontal_position * depth)
 
 ```
 
-Solution: 1592426537
+Runtime: 0.030772117999731563
 
+Solution: 1592426537

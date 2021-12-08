@@ -54,6 +54,8 @@
 
 ## Solution 1
 
+### Variant 1
+
 ```python
 
 from pathlib import Path
@@ -122,9 +124,9 @@ print("Solution:", winning_board.score() * number)
 
 ```
 
+Runtime: 0.043276667998725316
+
 Solution: 50008
-
-
 
 <details><summary>Exercise Text (click to expand)</summary>
 
@@ -137,6 +139,8 @@ Solution: 50008
 </details>
 
 ## Solution 2
+
+### Variant 1
 
 ```python
 
@@ -207,5 +211,6 @@ print("Solution:", last_board.score() * number)
 
 ```
 
-Solution: 17408
+Runtime: 0.04398057000071276
 
+Solution: 17408

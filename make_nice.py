@@ -1,50 +1,52 @@
 #!/usr/bin/env python
 
-from os import read
-from pathlib import Path
+import argparse
 import subprocess
+import time
+from pathlib import Path
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-a", "--all", action="store_true")
+args = parser.parse_args()
+
+
+def run_timed(path: Path) -> tuple[str, float]:
+    t0 = time.perf_counter()
+    result = subprocess.check_output(
+        f"/usr/bin/env python {path}", shell=True, encoding="utf-8"
+    ).strip()
+    t1 = time.perf_counter()
+    return result, (t1 - t0)
 
 
 here = Path(__file__).parent
 
-for folder in here.glob("day*"):
-    try:
-        # load data
-        part1 = (folder / "part1.html").read_text()
-        solution1 = folder / "solution1.py"
-        code1 = solution1.read_text()
-        result1 = subprocess.check_output(
-            f"/usr/bin/env python {solution1}", shell=True, encoding="utf-8"
-        ).replace("\n", "\n\n")
-        part2 = (folder / "part2.html").read_text()
-        solution2 = folder / "solution2.py"
-        code2 = solution2.read_text()
-        result2 = subprocess.check_output(
-            f"/usr/bin/env python {solution2}", shell=True, encoding="utf-8"
-        ).replace("\n", "\n\n")
-        # write data
-        readme = folder / "README.md"
-        readme.write_text(
-            "\n\n".join(
-                (
-                    "<details><summary>Exercise Text (click to expand)</summary>",
-                    part1,
-                    "</details>",
-                    "## Solution 1",
-                    "```python",
-                    code1,
-                    "```",
-                    result1,
-                    "<details><summary>Exercise Text (click to expand)</summary>",
-                    part2,
-                    "</details>",
-                    "## Solution 2",
-                    "```python",
-                    code2,
-                    "```",
-                    result2,
-                )
-            )
-        )
-    except FileNotFoundError as e:
-        print(f"Could not make '{folder.name}' nice: {e}")
+folders = here.glob("day*")
+if not args.all:
+    folders = [max(folders)]
+
+for folder in folders:
+    print(f"Making nice: {folder.name}")
+    content = []
+    for part in (1, 2):
+        html = (folder / f"part{part}.html").read_text()
+        content += [
+            "<details><summary>Exercise Text (click to expand)</summary>",
+            html,
+            "</details>",
+            f"## Solution {part}",
+        ]
+        for i, variant in enumerate(sorted(folder.glob(f"solution{part}*.py"))):
+            code = variant.read_text()
+            result, duration = run_timed(variant)
+            content += [
+                f"### Variant {i + 1}",
+                "```python",
+                code,
+                "```",
+                f"Runtime: {duration}",
+                *result.splitlines(),
+            ]
+
+    readme = folder / "README.md"
+    readme.write_text("\n\n".join(content))

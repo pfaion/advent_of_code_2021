@@ -29,6 +29,8 @@
 
 ## Solution 1
 
+### Variant 1
+
 ```python
 
 from pathlib import Path
@@ -47,9 +49,9 @@ print("Solution:", fuel_required)
 
 ```
 
+Runtime: 0.0374585190002108
+
 Solution: 328318
-
-
 
 <details><summary>Exercise Text (click to expand)</summary>
 
@@ -75,6 +77,8 @@ Solution: 328318
 </details>
 
 ## Solution 2
+
+### Variant 1
 
 ```python
 
@@ -120,7 +124,8 @@ print("Solution (B):", min(possible_fuel_required))
 
 ```
 
+Runtime: 0.38119818999985
+
 Solution (A): 89791146
 
 Solution (B): 89791146
-
