@@ -44,8 +44,10 @@ for folder in folders:
                 "```python",
                 code,
                 "```",
+                "```",
                 f"Runtime: {duration}",
-                *result.splitlines(),
+                result,
+                "```",
             ]
 
     readme = folder / "README.md"

@@ -73,9 +73,13 @@ print("Solution:", sum(fish_per_age.values()))
 
 ```
 
-Runtime: 0.029885406001994852
+```
+
+Runtime: 0.031977448001271114
 
 Solution: 345387
+
+```
 
 <details><summary>Exercise Text (click to expand)</summary>
 
@@ -115,6 +119,10 @@ print("Solution:", sum(fish_per_age.values()))
 
 ```
 
-Runtime: 0.03156473899798584
+```
+
+Runtime: 0.030083397025009617
 
 Solution: 1574445493136
+
+```

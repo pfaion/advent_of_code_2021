@@ -68,9 +68,13 @@ print("Solution:", sum(risk_levels))
 
 ```
 
-Runtime: 0.05693229100143071
+```
+
+Runtime: 0.04629808399477042
 
 Solution: 425
+
+```
 
 <details><summary>Exercise Text (click to expand)</summary>
 
@@ -181,6 +185,10 @@ print("Solution:", result)
 
 ```
 
-Runtime: 0.06344393800100079
+```
+
+Runtime: 0.05839164098142646
 
 Solution: 1135260
+
+```

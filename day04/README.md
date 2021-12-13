@@ -124,9 +124,13 @@ print("Solution:", winning_board.score() * number)
 
 ```
 
-Runtime: 0.043276667998725316
+```
+
+Runtime: 0.04153806300018914
 
 Solution: 50008
+
+```
 
 <details><summary>Exercise Text (click to expand)</summary>
 
@@ -211,6 +215,10 @@ print("Solution:", last_board.score() * number)
 
 ```
 
-Runtime: 0.04398057000071276
+```
+
+Runtime: 0.04604454702348448
 
 Solution: 17408
+
+```

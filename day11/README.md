@@ -344,9 +344,13 @@ print("Solution:", flashes)
 
 ```
 
-Runtime: 0.051733749016420916
+```
+
+Runtime: 0.041983997012721375
 
 Solution: 1683
+
+```
 
 <details><summary>Exercise Text (click to expand)</summary>
 
@@ -443,6 +447,10 @@ print("Solution:", step)
 
 ```
 
-Runtime: 0.11149684901465662
+```
+
+Runtime: 0.10559670499060303
 
 Solution: 788
+
+```

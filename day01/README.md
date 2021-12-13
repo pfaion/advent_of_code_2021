@@ -61,9 +61,13 @@ print("Solution:", n_increments)
 
 ```
 
-Runtime: 0.030181687001459068
+```
+
+Runtime: 0.030060382006922737
 
 Solution: 1532
+
+```
 
 <details><summary>Exercise Text (click to expand)</summary>
 
@@ -138,6 +142,10 @@ print("Solution:", n_increments)
 
 ```
 
-Runtime: 0.030818562001513783
+```
+
+Runtime: 0.03161976300179958
 
 Solution: 1571
+
+```

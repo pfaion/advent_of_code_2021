@@ -79,9 +79,13 @@ print("Solution:", score)
 
 ```
 
-Runtime: 0.03277665899076965
+```
+
+Runtime: 0.02932308299932629
 
 Solution: 367059
+
+```
 
 <details><summary>Exercise Text (click to expand)</summary>
 
@@ -163,6 +167,10 @@ print("Solution:", sorted(line_scores)[len(line_scores) // 2])
 
 ```
 
-Runtime: 0.027796521011623554
+```
+
+Runtime: 0.02902202701079659
 
 Solution: 1952146692
+
+```

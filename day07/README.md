@@ -49,9 +49,13 @@ print("Solution:", fuel_required)
 
 ```
 
-Runtime: 0.0374585190002108
+```
+
+Runtime: 0.04121837401180528
 
 Solution: 328318
+
+```
 
 <details><summary>Exercise Text (click to expand)</summary>
 
@@ -124,8 +128,11 @@ print("Solution (B):", min(possible_fuel_required))
 
 ```
 
-Runtime: 0.38119818999985
+```
+
+Runtime: 0.38934698098455556
 
 Solution (A): 89791146
-
 Solution (B): 89791146
+
+```

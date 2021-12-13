@@ -86,9 +86,13 @@ print("Solution:", n_unique_outputs)
 
 ```
 
-Runtime: 0.03092176500649657
+```
+
+Runtime: 0.03027038200525567
 
 Solution: 493
+
+```
 
 <details><summary>Exercise Text (click to expand)</summary>
 
@@ -214,9 +218,13 @@ print("Solution:", sum(numbers))
 
 ```
 
-Runtime: 1.7728166169981705
+```
+
+Runtime: 1.8100511510274373
 
 Solution: 1010460
+
+```
 
 ### Variant 2
 
@@ -303,9 +311,13 @@ print("Solution:", sum(numbers))
 
 ```
 
-Runtime: 0.03171941899927333
+```
+
+Runtime: 0.03349682499538176
 
 Solution: 1010460
+
+```
 
 ### Variant 3
 
@@ -390,6 +402,10 @@ print("Solution:", sum(numbers))
 
 ```
 
-Runtime: 0.032448062003823
+```
+
+Runtime: 0.03422664399840869
 
 Solution: 1010460
+
+```

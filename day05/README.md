@@ -103,9 +103,13 @@ print("Solution:", n_overlaps)
 
 ```
 
-Runtime: 0.1264089479991526
+```
+
+Runtime: 0.12551948201144114
 
 Solution: 6687
+
+```
 
 <details><summary>Exercise Text (click to expand)</summary>
 
@@ -199,6 +203,10 @@ print("Solution:", n_overlaps)
 
 ```
 
-Runtime: 0.16822024199791485
+```
+
+Runtime: 0.18198952099191956
 
 Solution: 19851
+
+```

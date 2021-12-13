@@ -126,9 +126,13 @@ print("Solution:", len(paths))
 
 ```
 
-Runtime: 0.06110476900357753
+```
+
+Runtime: 0.05353191000176594
 
 Solution: 4754
+
+```
 
 <details><summary>Exercise Text (click to expand)</summary>
 
@@ -222,6 +226,10 @@ print("Solution:", len(paths))
 
 ```
 
-Runtime: 2.853817939001601
+```
+
+Runtime: 2.776141304988414
 
 Solution: 143562
+
+```

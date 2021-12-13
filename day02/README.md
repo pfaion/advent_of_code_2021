@@ -62,9 +62,13 @@ print("Solution:", horizontal_position * depth)
 
 ```
 
-Runtime: 0.03076859100110596
+```
+
+Runtime: 0.0284672100096941
 
 Solution: 1524750
+
+```
 
 <details><summary>Exercise Text (click to expand)</summary>
 
@@ -126,6 +130,10 @@ print("Solution:", horizontal_position * depth)
 
 ```
 
-Runtime: 0.030772117999731563
+```
+
+Runtime: 0.0283917139749974
 
 Solution: 1592426537
+
+```

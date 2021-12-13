@@ -56,9 +56,13 @@ print("Solution:", gamma_rate * epsilon_rate)
 
 ```
 
-Runtime: 0.03456882400132599
+```
+
+Runtime: 0.0338988570147194
 
 Solution: 1997414
+
+```
 
 <details><summary>Exercise Text (click to expand)</summary>
 
@@ -141,6 +145,10 @@ print("Solution:", oxygen_rating * co2_rating)
 
 ```
 
-Runtime: 0.04085601399856387
+```
+
+Runtime: 0.035098218999337405
 
 Solution: 1032597
+
+```
