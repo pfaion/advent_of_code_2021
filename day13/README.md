@@ -105,6 +105,51 @@ fold along x=5
 
 ```python
 
+from itertools import product
+from pathlib import Path
+
+# load data
+data = Path(__file__).with_name("data.txt").read_text()
+points_raw, folds_raw = data.split("\n\n")
+
+# parse data
+points = {tuple(map(int, line.split(","))) for line in points_raw.splitlines()}
+folds = [(line[11], int(line.split("=")[1])) for line in folds_raw.splitlines()]
+
+# first folds
+axis, fold = folds[0]
+if axis == "y":
+    points = {(x, y) if y <= fold else (x, 2 * fold - y) for x, y in points}
+else:
+    points = {(x, y) if x <= fold else (2 * fold - x, y) for x, y in points}
+
+print("Solution:", len(points))
+
+
+```
+
+```
+
+Runtime: 0.02867035599774681
+
+Solution: 785
+
+```
+
+<details><summary>Exercise Text (click to expand)</summary>
+
+<article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p><span title="How can you fold it that many times? You tell me, I'm not the one folding it.">Finish folding</span> the transparent paper according to the instructions. The manual says the code is always <em>eight capital letters</em>.</p>
+<p><em>What code do you use to activate the infrared thermal imaging camera system?</em></p>
+</article>
+
+</details>
+
+## Solution 2
+
+### Variant 1
+
+```python
+
 from pathlib import Path
 
 # load data
@@ -135,7 +180,7 @@ for y in range(y_max + 1):
 
 ```
 
-Runtime: 0.033133329008705914
+Runtime: 0.030223483976442367
 
 Solution:
 ████   ██  ██  █  █   ██  ██   ██  █  █
@@ -146,13 +191,3 @@ Solution:
 █     ██  █  █ █  █  ██   ███ █  █ █  █
 
 ```
-
-<details><summary>Exercise Text (click to expand)</summary>
-
-<article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p><span title="How can you fold it that many times? You tell me, I'm not the one folding it.">Finish folding</span> the transparent paper according to the instructions. The manual says the code is always <em>eight capital letters</em>.</p>
-<p><em>What code do you use to activate the infrared thermal imaging camera system?</em></p>
-</article>
-
-</details>
-
-## Solution 2
