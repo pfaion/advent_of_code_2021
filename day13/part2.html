@@ -1,0 +1,3 @@
+<article class="day-desc"><h2 id="part2">--- Part Two ---</h2><p><span title="How can you fold it that many times? You tell me, I'm not the one folding it.">Finish folding</span> the transparent paper according to the instructions. The manual says the code is always <em>eight capital letters</em>.</p>
+<p><em>What code do you use to activate the infrared thermal imaging camera system?</em></p>
+</article>
