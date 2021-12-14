@@ -1,9 +1,7 @@
 <details><summary>Exercise Text (click to expand)</summary>
 
 <article class="day-desc"><h2>--- Day 14: Extended Polymerization ---</h2><p>The incredible pressures at this depth are starting to put a strain on your submarine. The submarine has <a href="https://en.wikipedia.org/wiki/Polymerization" target="_blank">polymerization</a> equipment that would produce suitable materials to reinforce the submarine, and the nearby volcanically-active caves should even have the necessary input elements in sufficient quantities.</p>
-<p>The submarine manual contains <span title="HO
-
-HO -> OH">instructions</span> for finding the optimal polymer formula; specifically, it offers a <em>polymer template</em> and a list of <em>pair insertion</em> rules (your puzzle input). You just need to work out what polymer would result after repeating the pair insertion process a few times.</p>
+<p>The submarine manual contains <span title="HO HO -> OH">instructions</span> for finding the optimal polymer formula; specifically, it offers a <em>polymer template</em> and a list of <em>pair insertion</em> rules (your puzzle input). You just need to work out what polymer would result after repeating the pair insertion process a few times.</p>
 <p>For example:</p>
 <pre><code>NNCB
 
@@ -79,7 +77,7 @@ print("Solution:", most - least)
 
 ```
 
-Runtime: 0.05051852299948223
+Runtime: 0.038641888997517526
 
 Solution: 4517
 
@@ -144,7 +142,7 @@ print("Solution:", most - least)
 
 ```
 
-Runtime: 0.048765248007839546
+Runtime: 0.031863636017078534
 
 Solution: 4704817645083
 
