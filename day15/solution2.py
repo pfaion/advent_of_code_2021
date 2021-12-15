@@ -39,7 +39,7 @@ while end != (node := nodes.get()[1]):
         risk = known_risks[node] + risk_levels[neighbor]
         if risk < known_risks[neighbor]:
             known_risks[neighbor] = risk
-            nodes.put((risk, neighbor))
+            nodes.put((risk_estimation(neighbor), neighbor))
 
 
 print("Solution:", known_risks[end])

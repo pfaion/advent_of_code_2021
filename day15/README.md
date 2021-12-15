@@ -77,7 +77,7 @@ print("Solution:", total_risk)
 
 ```
 
-Runtime: 5.29674443899421
+Runtime: 5.298386059992481
 
 Solution: 621
 
@@ -251,7 +251,7 @@ while end != (node := nodes.get()[1]):
         risk = known_risks[node] + risk_levels[neighbor]
         if risk < known_risks[neighbor]:
             known_risks[neighbor] = risk
-            nodes.put((risk, neighbor))
+            nodes.put((risk_estimation(neighbor), neighbor))
 
 
 print("Solution:", known_risks[end])
@@ -261,7 +261,7 @@ print("Solution:", known_risks[end])
 
 ```
 
-Runtime: 1.781197410018649
+Runtime: 2.0002752610016614
 
 Solution: 2904
 
