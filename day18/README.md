@@ -147,24 +147,13 @@ after explode:  [[[[0,7],4],[[7,8],[6,0]]],[8,1]]
 
 ```python
 
-from pathlib import Path
 import re
+from itertools import accumulate
+from pathlib import Path
 
 numbers = Path(__file__).with_name("data.txt").read_text().splitlines()
 
 # who needs hierarchical data, we do string operations! :D
-
-
-def find_depth_4(number: str) -> int | None:
-    counter = 0
-    for i, char in enumerate(number):
-        if char == "[":
-            if counter == 4:
-                return i
-            counter += 1
-        elif char == "]":
-            counter -= 1
-    return None
 
 
 result = numbers[0]
@@ -173,35 +162,29 @@ for number in numbers[1:]:
     while True:
 
         # check if we need to explode first
-        if (explode_start := find_depth_4(result)) is not None:
+        depths = accumulate({"[": 1, "]": -1}.get(char, 0) for char in result)
+        first_depth_5 = next((i for i, depth in enumerate(depths) if depth == 5), None)
+        if (explode_start := first_depth_5) is not None:
             # extract numbers from pair to explode
             explode_stop = result.index("]", explode_start)
-            part_left = result[:explode_start]
-            part_explode = result[explode_start : explode_stop + 1]
-            part_right = result[explode_stop + 1 :]
-            a, b = map(int, part_explode[1:-1].split(","))
+            left = result[:explode_start]
+            a, b = map(int, result[explode_start + 1 : explode_stop].split(","))
+            right = result[explode_stop + 1 :]
             # adjust number to the left (tricky, need to search in reversed string)
-            if left := re.search(r"\d+", part_left[::-1]):
-                num = int(left.group(0)[::-1])
-                part_left = (
-                    part_left[: -left.end()] + str(num + a) + part_left[-left.start() :]
-                )
+            if match := re.search(r"\d+", left[::-1]):
+                num = int(match.group(0)[::-1])
+                left = left[: -match.end()] + str(num + a) + left[-match.start() :]
             # adjust next number to the right
-            if right := re.search(r"\d+", part_right):
-                num = int(right.group(0))
-                part_right = (
-                    part_right[: right.start()]
-                    + str(num + b)
-                    + part_right[right.end() :]
-                )
-            result = part_left + "0" + part_right
+            if match := re.search(r"\d+", right):
+                num = int(match.group(0))
+                right = right[: match.start()] + str(num + b) + right[match.end() :]
+            # fuse again and replace pair
+            result = left + "0" + right
 
         # or check if we need to split
         elif split := re.search(r"\d\d+", result):
             num = int(split.group(0))
-            a = num // 2
-            b = num - a
-            result = re.sub(r"\d\d+", f"[{a},{b}]", result, count=1)
+            result = re.sub(r"\d\d+", f"[{num // 2},{(num + 1) // 2}]", result, count=1)
 
         # otherwise we're done
         else:
@@ -217,7 +200,7 @@ print("Solution:", magnitude)
 
 ```
 
-Runtime: 0.20002328301779926
+Runtime: 0.33439059497322887
 
 Solution: 4323
 
@@ -252,25 +235,13 @@ Solution: 4323
 
 ```python
 
-from pathlib import Path
 import re
-from itertools import permutations
+from itertools import accumulate, permutations
+from pathlib import Path
 
 numbers = Path(__file__).with_name("data.txt").read_text().splitlines()
 
 # who needs hierarchical data, we do string operations! :D
-
-
-def find_depth_4(number: str) -> int | None:
-    counter = 0
-    for i, char in enumerate(number):
-        if char == "[":
-            if counter == 4:
-                return i
-            counter += 1
-        elif char == "]":
-            counter -= 1
-    return None
 
 
 def add(n1: str, n2: str) -> str:
@@ -278,35 +249,29 @@ def add(n1: str, n2: str) -> str:
     while True:
 
         # check if we need to explode first
-        if (explode_start := find_depth_4(result)) is not None:
+        depths = accumulate({"[": 1, "]": -1}.get(char, 0) for char in result)
+        first_depth_5 = next((i for i, depth in enumerate(depths) if depth == 5), None)
+        if (explode_start := first_depth_5) is not None:
             # extract numbers from pair to explode
             explode_stop = result.index("]", explode_start)
-            part_left = result[:explode_start]
-            part_explode = result[explode_start : explode_stop + 1]
-            part_right = result[explode_stop + 1 :]
-            a, b = map(int, part_explode[1:-1].split(","))
+            left = result[:explode_start]
+            a, b = map(int, result[explode_start + 1 : explode_stop].split(","))
+            right = result[explode_stop + 1 :]
             # adjust number to the left (tricky, need to search in reversed string)
-            if left := re.search(r"\d+", part_left[::-1]):
-                num = int(left.group(0)[::-1])
-                part_left = (
-                    part_left[: -left.end()] + str(num + a) + part_left[-left.start() :]
-                )
+            if match := re.search(r"\d+", left[::-1]):
+                num = int(match.group(0)[::-1])
+                left = left[: -match.end()] + str(num + a) + left[-match.start() :]
             # adjust next number to the right
-            if right := re.search(r"\d+", part_right):
-                num = int(right.group(0))
-                part_right = (
-                    part_right[: right.start()]
-                    + str(num + b)
-                    + part_right[right.end() :]
-                )
-            result = part_left + "0" + part_right
+            if match := re.search(r"\d+", right):
+                num = int(match.group(0))
+                right = right[: match.start()] + str(num + b) + right[match.end() :]
+            # fuse again and replace pair
+            result = left + "0" + right
 
         # or check if we need to split
         elif split := re.search(r"\d\d+", result):
             num = int(split.group(0))
-            a = num // 2
-            b = num - a
-            result = re.sub(r"\d\d+", f"[{a},{b}]", result, count=1)
+            result = re.sub(r"\d\d+", f"[{num // 2},{(num + 1) // 2}]", result, count=1)
 
         # otherwise we're done
         else:
@@ -314,18 +279,11 @@ def add(n1: str, n2: str) -> str:
 
 
 def magnitude(number: str) -> int:
-    magnitude_formula = (
-        number.replace("[", "(3*").replace(",", " + 2*").replace("]", ")")
-    )
-    return eval(magnitude_formula)
+    formula = number.replace("[", "(3*").replace(",", " + 2*").replace("]", ")")
+    return eval(formula)
 
 
-max_magnitude = 0
-for a, b in permutations(numbers, r=2):
-    mag = magnitude(add(a, b))
-    if mag > max_magnitude:
-        max_magnitude = mag
-
+max_magnitude = max(magnitude(add(a, b)) for a, b in permutations(numbers, r=2))
 print("Solution:", max_magnitude)
 
 
@@ -333,7 +291,7 @@ print("Solution:", max_magnitude)
 
 ```
 
-Runtime: 2.768001477001235
+Runtime: 4.5979960929835215
 
 Solution: 4749
 
