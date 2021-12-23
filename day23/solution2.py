@@ -130,11 +130,21 @@ def free_shrimp_paths(space: list[str], pos: int) -> Iterable[Path]:
 
 
 # get all valid shrimp moves for a given state
-def moves(space: list[str]) -> Iterable[tuple[int, int, int]]:
+def moves(space: list[str]) -> list[tuple[int, int, int]]:
+    m = []
     for shrimp_pos, c in ((i, c) for i, c in enumerate(space) if c != "."):
         for path in free_shrimp_paths(space, shrimp_pos):
+            stop = path[-1]
             cost = len(path) * costs[c]
-            yield shrimp_pos, path[-1], cost
+            # if there's a possible move that moves a shrimp to the last pos in
+            # their home, we should always do that!
+            if shrimp_pos not in homes[c] and is_home_ready(space, c):
+                last_free_pos = max(slot for slot in homes[c] if space[slot] == ".")
+                if stop == last_free_pos:
+                    return [(shrimp_pos, stop, cost)]
+
+            m.append((shrimp_pos, stop, cost))
+    return m
 
 
 # transform state by applying move
