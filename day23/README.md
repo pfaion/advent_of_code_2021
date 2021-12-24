@@ -248,7 +248,7 @@ print("Solution:", solve_smallest_cost(space))
 
 ```
 
-Runtime: 28.818039343001146
+Runtime: 28.77195117699739
 
 0             5             5            40           2000           500          3000           200           400           30             3             3            10            20            100           200          3000          2000     
 ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# #############
@@ -489,6 +489,7 @@ Solution: 11516
 
 ```python
 
+from functools import cache
 from pathlib import Path
 from queue import PriorityQueue
 from typing import Iterable
@@ -534,6 +535,7 @@ Path = list[int]
 
 
 # get all positions on a path
+@cache
 def get_path(start: int, stop: int) -> Path:
     # hallway to home
     if start < 11:
@@ -595,9 +597,6 @@ def possible_shrimp_paths(space: list[str], pos: int) -> Iterable[Path]:
 
     # in correct home
     elif pos in homes[c]:
-        # stay in home
-        for other_slot in set(homes[c]) - {pos}:
-            yield get_path(pos, other_slot)
         # move to hallway
         for end in non_door_hallway:
             yield get_path(pos, end)
@@ -662,6 +661,7 @@ def solve_smallest_cost(space: list[str]) -> int:
         cost, spaces, costs = search_space.get()
         space = spaces[-1]
         if finished(space):
+            print("Solving moves:")
             print(rep_all(spaces, costs))
             return cost
         for start, stop, move_cost in moves(space):
@@ -680,9 +680,10 @@ print("Solution:", solve_smallest_cost(space))
 
 ```
 
-Runtime: 78.22633439400306
+Runtime: 9.228639979002764
 
-0            50           2000           10            70            800           700          5000            6           9000           500           600           200           500          10000         10000           4            500           40             5            50            60            80             6             6             7             8            70      
+Solving moves:
+      0            50           2000           10            70            800           700          5000            6           9000           500           600           200           500          10000         10000           4            500           40             5            50            60            80             6             6             7             8            70      
 ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# ############# #############
 #...........# #..........B# #.........DB# #A........DB# #AB.......DB# #AB.C.....DB# #AB.C.C...DB# #AB.C.C....B# #AB.C.C...AB# #AB.C.C...AB# #AB.C.....AB# #AB.......AB# #AB.C.....AB# #AB.......AB# #AB.......AB# #AB.......AB# #AB.....A.AB# #AB.....A.AB# #AB.B...A.AB# #AB.B.A.A.AB# #AB...A.A.AB# #A....A.A.AB# #A....A.A.AB# #.....A.A.AB# #.......A.AB# #.........AB# #..........B# #...........#
 ###C#A#B#D### ###C#A#.#D### ###C#A#.#.### ###C#A#.#.### ###C#A#.#.### ###C#A#.#.### ###C#A#.#.### ###C#A#.#.### ###C#A#.#.### ###C#A#.#.### ###C#A#.#.### ###C#A#.#.### ###.#A#.#.### ###.#A#.#.### ###.#A#.#.### ###.#A#.#D### ###.#.#.#D### ###.#.#C#D### ###.#.#C#D### ###.#.#C#D### ###.#.#C#D### ###.#.#C#D### ###.#.#C#D### ###.#.#C#D### ###.#.#C#D### ###.#.#C#D### ###A#.#C#D### ###A#B#C#D###

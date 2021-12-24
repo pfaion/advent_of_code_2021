@@ -1,3 +1,4 @@
+from functools import cache
 from pathlib import Path
 from queue import PriorityQueue
 from typing import Iterable
@@ -43,6 +44,7 @@ Path = list[int]
 
 
 # get all positions on a path
+@cache
 def get_path(start: int, stop: int) -> Path:
     # hallway to home
     if start < 11:
@@ -104,9 +106,6 @@ def possible_shrimp_paths(space: list[str], pos: int) -> Iterable[Path]:
 
     # in correct home
     elif pos in homes[c]:
-        # stay in home
-        for other_slot in set(homes[c]) - {pos}:
-            yield get_path(pos, other_slot)
         # move to hallway
         for end in non_door_hallway:
             yield get_path(pos, end)
@@ -171,6 +170,7 @@ def solve_smallest_cost(space: list[str]) -> int:
         cost, spaces, costs = search_space.get()
         space = spaces[-1]
         if finished(space):
+            print("Solving moves:")
             print(rep_all(spaces, costs))
             return cost
         for start, stop, move_cost in moves(space):
